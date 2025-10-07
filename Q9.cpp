@@ -1,0 +1,3 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){int n,m; if(!(cin>>n>>m)) return 0; vector<vector<int>>g(n,vector<int>(m)); for(int i=0;i<n;i++) for(int j=0;j<m;j++) cin>>g[i][j]; if(g[0][0]==1||g[n-1][m-1]==1){ cout<<"false"; return 0;} queue<pair<int,int>>q; q.push({0,0}); vector<int>dr={1,-1,0,0}, dc={0,0,1,-1}; vector<vector<int>>vis(n,vector<int>(m)); vis[0][0]=1; while(!q.empty()){ auto [r,c]=q.front(); q.pop(); if(r==n-1 && c==m-1){ cout<<"true"; return 0;} for(int k=0;k<4;k++){ int nr=r+dr[k], nc=c+dc[k]; if(nr>=0 && nr<n && nc>=0 && nc<m && !vis[nr][nc] && g[nr][nc]==0){ vis[nr][nc]=1; q.push({nr,nc}); } } } cout<<"false"; }

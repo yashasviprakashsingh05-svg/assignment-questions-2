@@ -1,0 +1,3 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){int r,c; if(!(cin>>r>>c)) return 0; vector<vector<int>>a(r,vector<int>(c)); for(int i=0;i<r;i++) for(int j=0;j<c;j++) cin>>a[i][j]; int top=0,bottom=r-1,left=0,right=c-1; bool first=true; while(top<=bottom && left<=right){ for(int j=left;j<=right;j++){ if(!first) cout<<" "; cout<<a[top][j]; first=false;} top++; for(int i=top;i<=bottom;i++){ cout<<" "<<a[i][right]; } right--; if(top<=bottom){ for(int j=right;j>=left;j--){ cout<<" "<<a[bottom][j]; } bottom--; } if(left<=right){ for(int i=bottom;i>=top;i--){ cout<<" "<<a[i][left]; } left++; } } }
